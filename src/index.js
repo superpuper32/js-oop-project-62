@@ -2,13 +2,13 @@ class Validator {
     constructor() {
 
     }
-    
-    string() {
 
+    string() {
+        return this;
     }
 
-    isValid() {
-
+    isValid(str) {
+        return true;
     }
 
     required() {
