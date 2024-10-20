@@ -1,27 +1,31 @@
 class Validator {
-    constructor() {
+  constructor() {
+    this.req = false;
+    this.minLength = 0;
+  }
 
-    }
+  string() {
+    return this;
+  }
 
-    string() {
-        return this;
-    }
+  isValid(str) {
+    if (!this.req) return true;
+    if (typeof str !== 'string' || str < this.minLength || !str) return false;
 
-    isValid(str) {
-        return true;
-    }
+    return true;
+  }
 
-    required() {
+  required() {
+    this.req = true;
+  }
 
-    }
+  contains() {
+    return this;
+  }
 
-    contains() {
-
-    }
-
-    minLength() {
-
-    }
+  minLength(num) {
+    this.minLength = num;
+  }
 }
 
 export default Validator;
