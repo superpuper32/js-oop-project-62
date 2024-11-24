@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "validator",
+  "description": "data validator",
   "main": "index.js",
   "simple-git-hooks": {
     "pre-push": "npx lint-staged"
