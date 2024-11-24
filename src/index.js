@@ -1,7 +1,8 @@
 class Validator {
   constructor() {
     this.req = false;
-    this.minLength = 0;
+    this.minLen = 0;
+    this.containWords = [];
   }
 
   string() {
@@ -10,7 +11,18 @@ class Validator {
 
   isValid(str) {
     if (!this.req) return true;
-    if (typeof str !== 'string' || str < this.minLength || !str) return false;
+
+    if (typeof str !== 'string' || str.length < this.minLen || !str.length) return false;
+
+    if (this.containWords.length > 0) {
+      let result = true;
+      this.containWords.forEach((word) => {
+        if (!str.includes(word)) {
+          result = false;
+        }
+      });
+      return result;
+    }
 
     return true;
   }
@@ -19,12 +31,14 @@ class Validator {
     this.req = true;
   }
 
-  contains() {
+  contains(str) {
+    this.containWords.push(str);
     return this;
   }
 
   minLength(num) {
-    this.minLength = num;
+    this.minLen = num;
+    return this;
   }
 }
 
